@@ -3,6 +3,18 @@ package main
 import "fmt"
 
 func main() {
+
+	continer := make([]int, 0)
+
+	for i := 0; i < 99; i++ {
+		continer = append(continer, i)
+	}
+	for i, _ := range continer {
+		fmt.Println(continer[i])
+	}
+	if true {
+		return
+	}
 	chanl := make(chan int, 51) // 带缓存的channel
 
 	go func() {

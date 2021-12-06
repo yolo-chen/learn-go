@@ -8,6 +8,10 @@ import (
 	"time"
 )
 
+func tttt(ctx *gin.Context) {
+	ctx.Writer.WriteString("hello")
+}
+
 func main() {
 	g := gin.Default()
 	g.GET("/hello", StatCost(), func(c *gin.Context) { // 使用中间件方式1
@@ -19,6 +23,8 @@ func main() {
 			"get":     get,
 		})
 	})
+
+	g.GET("/ttt", tttt) // 此处为回调函数  回调指的是将
 
 	g.GET("/hei", func(context *gin.Context) { // 使用中间件方式 2
 		start := time.Now()
